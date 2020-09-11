@@ -11,9 +11,6 @@ LABEL maintainer="Citus Data https://citusdata.com" \
 
 ENV CITUS_VERSION ${VERSION}.citus-1
 
-# 默认使用上海时区 + 阿里源
-RUN echo "Asia/Shanghai" > /etc/timezone && dpkg-reconfigure -f noninteractive tzdata && \
-    echo "deb http://mirrors.aliyun.com/debian/ buster main non-free contrib" > /etc/apt/sources.list
 # install Citus
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
